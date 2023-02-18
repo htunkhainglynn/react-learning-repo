@@ -1,0 +1,31 @@
+More like function in mathematic rather than programming functions. 
+
+Rules:
+	1) Always takes an input  [func(func)]
+	2) Always gives an output 
+	3) There is one just one output for the same input 
+    
+    for example :
+		
+		// this is pure function
+		function next(counter)
+		{
+		    return counter + 1;
+		}
+		It doesn't rely on the outer state. So it is easy to understand once it is looked.
+		For 1 it outputs 2;
+		For 2 it outputs 3;
+		Whenever 1 comes back again it will output 2 always.
+		**For an input X gives a single output Y**
+		
+		// This is the example of impure function
+		
+		let counter;
+		
+		function getCounter() 
+		{
+		    return counter ++;
+		}
+		If counter variable was changed getCounter will return different output every time it was called.
+		
+	  

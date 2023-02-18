@@ -11,7 +11,7 @@ var topKFrequent = function(nums, k) {
     // get the k index array
     const result = array.reduce((ans, item, index) => {
         return index < k ? ((ans.push(item[0])), ans) : ans
-    }, []);
+    }, []);  // read MDN docs for explaination
 
     console.log(result);
 

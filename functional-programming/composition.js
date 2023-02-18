@@ -3,7 +3,12 @@ const toUpper = (str) => str.toUpperCase();
 
 const compose = (f, g) => (x) => f(g(x));
 
-let modify = compose(toUpper, appendHi);
+/*
+    composition goes like this appendHi -> toUpper f(g(x))
+    koko becomes x and hikoko becomes input for toUpper function
+*/
+
+let modify = compose(toUpper, appendHi);  
 console.log("append hi and change to uppper", modify('koko'));
 
 

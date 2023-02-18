@@ -1,4 +1,4 @@
-// pytho zip function implements in js
+// python zip function implements in js
 
 const zip = (left, right, fn) => {
     let result = [];

@@ -2,6 +2,7 @@ let arr = [1, 2, 3, 4, 5];
 let start = 0;
 let end = arr.length - 1;
 
+// testing recursive function using arrow function
 let binarySearch = (search, arr, start, end) => {
     const mid = Math.floor((start + end) / 2);
     return search > arr[mid] ? binarySearch(search, arr, mid + 1, end) : 
