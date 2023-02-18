@@ -1,0 +1,26 @@
+<html>
+    <script>
+
+        let person = {
+            name: "hkl",
+            _age: 13,
+            set age(age)
+            {
+                if (age < 100 && age > 0 )
+                {
+                    this._age = age;
+                }
+            },
+
+            get age()
+            {
+                return this._age;
+            }
+        }
+
+        // no () in getter setter because they are properties
+        person.age = 19;
+        console.log("person", person.age);
+
+    </script>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <script>
+        let position = {x: 10, y: 20, arr: [1, 2]};
+        let dimension = {width: 100, height: 200};
+
+        let rect = {...dimension, ...position};  // spread operator
+        console.log("rect", rect)
+
+        let rect2 = Object.assign(dimension, position);
+        console.log("rect", rect2)
+
+        //shallow clone
+        let position2 = {...position};  // new object created
+        console.log("position2", position2);
+        console.log("position == position2", position == position2);
+
+        // if there is another obj (arrary) in org obj, the inner obj is same reference
+        console.log("position.arr == position2.arr", position.arr == position2.arr);  
+
+        // deep clone
+        let position3 = JSON.parse(JSON.stringify(position));
+        console.log("position3", position3);
+        console.log("position == position3", position == position3);
+        console.log("position.arr == position3.arr", position.arr == position3.arr); 
+
+
+    </script>
+</html>

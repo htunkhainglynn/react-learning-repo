@@ -1,0 +1,19 @@
+arr = [10, 20, 30]; => reference => 0x10
+
+so...
+
+10 locates in 0x10 on memory and index [0]
+20 locates in 0x14 on memory and index [1]
+30 locates in 0x18 on memory and index [2]
+
+get location (forget 0x)
+
+formula -> arr + (index * size)
+
+for index 0, 10 + (0 * 4) = 10 => 0x10
+for index 1, 10 + (1 * 4) = 14 => 0x14
+for index 2, 10 + (2 * 4) = 18 => 0x18
+
+if index starts from 1
+
+formula -> arr + ((index - 1) * size) => need to do one more step

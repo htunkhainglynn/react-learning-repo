@@ -1,0 +1,29 @@
+<html>
+    <script>
+        let obj = {
+            name : 'hkl',
+            age : 22,
+            method:function()
+            {
+                console.log("This is method.")
+            }
+        };
+
+        let target = Object.assign({
+            name : "something",
+            address : "thaton"
+        }, obj);  // right to left obj -> target(so name = 'hkl')
+
+        console.log("target", target);
+
+        let str = JSON.stringify(target);  // serialize obj to str (exclude methods)
+        console.log("str", str)
+
+        let new_obj = JSON.parse(str);  // deserialize str to obj
+        console.log("new_obj", new_obj);  // without method
+
+        let with_func_obj = Object.assign(obj, new_obj);
+        console.log("with func", with_func_obj);
+        
+    </script>
+</html>

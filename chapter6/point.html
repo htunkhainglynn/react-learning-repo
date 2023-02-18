@@ -1,0 +1,21 @@
+<html>
+    <script>
+        let point = {
+            x: 10,
+            y: 20,
+            move:function(x, y)
+            {
+                this.x += x;
+                this.y += y;
+            }
+        };
+
+        console.log("before move x: ", point.x)
+        console.log("before move y: ", point.y)
+
+        point.move(10, 10);
+
+        console.log("after move x: ", point.x)
+        console.log("after move y: ", point.y)
+    </script>
+</html>
