@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="/Users/htunkhainglinn/Documents/ReactJS/functional-programming/node_modules/ramda/dist/ramda.js"></script>
+    <script>
+        const nums = [1, 1, 1, 2, 2, 3];
+        // const groupByCount = R.groupBy(R.identity)(arr);
+
+        // let countGpArr = R.map(ele => [ele[0], ele.length])(groupByCount);  // R.map support object => works on object values
+        // countGpArr = R.values(countGpArr); // => [ [ 1, 3 ], [ 2, 2 ], [ 3, 1 ] ]
+
+        // const sortByfrequent = R.sort((a, b) => b[1] - a[1]);
+        // const sortedArr = sortByfrequent(countGpArr);
+
+        // const k = R.take(2)(sortedArr);
+        // const result = R.map(ele => ele[0])(k);
+
+        // const out = x => console.log('x is ' + x);
+        // const log = R.tap(out);
+        // const result = R.pipe(
+        //     log,
+        //     R.groupBy(R.identity),
+        //     log,
+        //     R.map(ele => [ele[0], ele.length]),
+        //     log,
+        //     R.values,
+        //     log,
+        //     R.sort((a, b) => b[1] - a[1]),
+        //     R.take(k),
+        //     R.map(ele => ele[0]),
+        //     log
+        // );
+        // console.log(result(nums));
+
+        let k = 2;
+        const result = R.pipe(
+            // countBy is used to count the frequency by it's identity and returns as object
+            R.countBy(R.identity),  // count using its identity[x => x] => {1:3, 2:2, 3:1} 
+            R.toPairs,  // =>[[1,3], [2,2], [3,1]]
+            R.sort((a, b) => b[1] - a[1]),  // sort using value =>[[1,3], [2,2], [3,1]]
+            R.take(k),  // slice array => [[1,3], [2,2]]
+            R.map(ele => ele[0])  // return all first elements as array => [1,2]
+        );
+        return result(nums);
+    </script>
+</body>
+</html>
