@@ -13,8 +13,8 @@ let obj2 = {
 
 obj.greet("hello");
 
-newGreet = obj.greet;
+let newGreet = obj.greet;
 newGreet.apply(obj, ['hello']);
 
- greet2 = obj.greet.bind(obj2);
+ let greet2 = obj.greet.bind(obj2);
  greet2('hello');
