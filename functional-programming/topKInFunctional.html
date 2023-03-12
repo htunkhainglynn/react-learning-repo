@@ -1,14 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <script src="/Users/htunkhainglinn/Documents/ReactJS/functional-programming/node_modules/ramda/dist/ramda.js"></script>
+    <script
+        src="/Users/htunkhainglinn/Documents/ReactJS/functional-programming/node_modules/ramda/dist/ramda.js"></script>
     <script>
         const nums = [1, 1, 1, 2, 2, 3];
         // const groupByCount = R.groupBy(R.identity)(arr);
@@ -39,16 +41,41 @@
         // );
         // console.log(result(nums));
 
-        let k = 2;
-        const result = R.pipe(
-            // countBy is used to count the frequency by it's identity and returns as object
-            R.countBy(R.identity),  // count using its identity[x => x] => {1:3, 2:2, 3:1} 
-            R.toPairs,  // =>[[1,3], [2,2], [3,1]]
-            R.sort((a, b) => b[1] - a[1]),  // sort using value =>[[1,3], [2,2], [3,1]]
-            R.take(k),  // slice array => [[1,3], [2,2]]
-            R.map(ele => ele[0])  // return all first elements as array => [1,2]
+        // let k = 2;
+        // const result = R.pipe(
+        //     // countBy is used to count the frequency by it's identity and returns as object
+        //     R.countBy(R.identity),  // count using its identity[x => x] => {1:3, 2:2, 3:1} 
+        //     R.toPairs,  // =>[[1,3], [2,2], [3,1]]
+        //     R.sort((a, b) => b[1] - a[1]),  // sort using value =>[[1,3], [2,2], [3,1]]
+        //     R.take(k),  // slice array => [[1,3], [2,2]]
+        //     R.map(ele => ele[0])  // return all first elements as array => [1,2]
+        // );
+        // return result(nums);
+
+        const makeQuery = email => ({ query: { email } });
+        const fetchMember = request =>
+            Promise.resolve({ firstName: 'Bob', lastName: 'Loblaw', id: 42 });
+
+        const sayX = x => {
+            console.log('x is ' + x);
+            return x;
+        };
+        const log = R.tap(sayX); //=> 100
+        // logs 'x is 100'
+
+        //getMemberName :: String -> Promise ({ firstName, lastName })
+        const getMemberName = R.pipe(
+            log,
+            makeQuery,
+            log,
+            fetchMember,
+            log,
+            R.andThen(R.pick(['firstName', 'lastName'])),
+            log
         );
-        return result(nums);
+
+        getMemberName('bob@gmail.com');
     </script>
 </body>
+
 </html>
