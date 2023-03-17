@@ -3,7 +3,7 @@ More like function in mathematic rather than programming functions.
 Rules:
 	1) Always takes an input  [func(func)]
 	2) Always gives an output 
-	3) There is one just one output for the same input 
+	3) There is one just one output for the same input
     
     for example :
 		

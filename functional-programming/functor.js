@@ -17,14 +17,14 @@ const Functor = x => ({
     valueOf: () => x
 })
 
+
 /**
  * Functor(x) return Object. Writing .of() is not necessay 
  * but it is a good pratice writing with .of() when creating an object 
  * because it is standarized by javascript community. 
  * It is similar to java factory method. 
  * */
-
-Functor.of = (x) => Functor(x);  
+Functor.of = (x) => Functor(x); 
 let counter = Functor.of(2);
 console.log('counter', counter.valueOf());
 let double = counter.map(x => x * 2);
